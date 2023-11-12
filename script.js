@@ -9,13 +9,16 @@ const calculate = (btnValue) => {
         output = eval(output.replace("%", "/100"));
     }
     else if(btnValue === "AC") {
-    output = "";
-    } 
+        output = "";
+    }  
     else if (btnValue === "DEL"){
-        
+        output = output.toString().slice(0, -1);
     }
-    
-    
+    else{
+        if (output === "" && specialChars.includes(btnValue)) return;
+        output += btnValue;
+    }
+
     display.value = output;
 };
 
